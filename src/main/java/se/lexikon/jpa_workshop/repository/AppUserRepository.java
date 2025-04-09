@@ -13,5 +13,4 @@ public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
     LocalDate endDate = LocalDate.of(2025,3,1);
     List<AppUser> findByRegDateBetween(LocalDate startDate, LocalDate endDate);
     List<AppUser> findByUserDetails_Id(int id);
-    AppUser findByemailIgnoreCase(String email);
 }
