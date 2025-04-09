@@ -1,8 +1,15 @@
 package se.lexikon.jpa_workshop.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 
 @Entity
 public class AppUser {
@@ -18,4 +25,10 @@ public class AppUser {
     @JoinColumn(name = "details.id", nullable = false, unique = true)
     private Details userDetails;
 
+    public AppUser(String username, String password, LocalDate regDate, Details userDetails) {
+        this.username = username;
+        this.password = password;
+        this.regDate = regDate;
+        this.userDetails = userDetails;
+    }
 }
