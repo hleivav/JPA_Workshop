@@ -23,8 +23,8 @@ public class AppUser {
     private String username;
     private String password;
     private LocalDate regDate;
-    @OneToOne
-    @JoinColumn(name = "details.id", nullable = false, unique = true)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "detailsId", nullable = false, unique = true)
     private Details userDetails;
 
     @OneToMany(mappedBy = "borrower")
