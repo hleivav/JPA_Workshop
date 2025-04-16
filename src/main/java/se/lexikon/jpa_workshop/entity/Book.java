@@ -24,4 +24,15 @@ public class Book {
 
     @OneToMany(mappedBy = "book")
     private Set<BookLoan> bookLoanList = new HashSet<>();
+
+    @ManyToMany(mappedBy = "books")
+    private Set<Author> authors = new HashSet<>();
+
+    public void addAuthor(Author author) {
+        this.authors.add(author);
+    }
+
+    public void removeAuthor(Author author) {
+        this.authors.remove(author);
+    }
 }
