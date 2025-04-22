@@ -7,7 +7,6 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 
@@ -25,4 +24,12 @@ public class BookLoan {
     @ManyToOne
     private Book book;
 
+    //Another constructor to catch the value of dueDate.
+    public BookLoan( boolean returned, AppUser borrower, Book book) {
+        this.loanDate = LocalDate.now();
+        this.returned = returned;
+        this.borrower = borrower;
+        this.book = book;
+        this.dueDate = loanDate.minusDays(book.getMaxLoanDays());
+    }
 }

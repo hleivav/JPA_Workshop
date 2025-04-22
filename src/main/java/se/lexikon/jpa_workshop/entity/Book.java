@@ -21,6 +21,7 @@ public class Book {
     private String isbn;
     private String title;
     private int maxLoanDays;
+    private boolean available;
 
     @OneToMany(mappedBy = "book")
     private Set<BookLoan> bookLoanList = new HashSet<>();
